@@ -17,6 +17,7 @@
 
     <!-- Styles -->
     @livewireStyles
+    @vite('resources/css/app.css')
 </head>
 
 <body class="font-sans antialiased">
