@@ -12,6 +12,7 @@ Route::middleware("roleAuth:user")->group(function () {
     Route::get("/user", [PostController::class, "index"])->name("user.account");
     Route::get("/user/blog", [PostController::class, "blog"])->name("user.blog");
     Route::get("/user/blog/create", [PostController::class, "create"])->name("blog.create");
+    Route::post("/user/blog", [PostController::class, "store"])->name("posts.store");
     Route::get("/user/blog/{id}", [PostController::class, "show"])->name("blog.show");
     Route::get("/user/blog/{id}/edit", [PostController::class, "edit"])->name("blog.edit");
 });

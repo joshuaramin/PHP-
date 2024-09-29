@@ -34,16 +34,16 @@
                 @foreach($users as $user)
                 <tbody>
                     <tr class="bg-white border-b light:bg-gray-800 light:border-gray-200">
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-6 py-4 text-left">
                             {{$user['name']}}
                         </td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-6 py-4 text-left">
                             {{$user['age']}}
                         </td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-6 py-4 text-left">
                             {{$user['email']}}
                         </td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-6 py-4 text-left">
                             {{$user['occupation']}}
                         </td>
                         <td>
