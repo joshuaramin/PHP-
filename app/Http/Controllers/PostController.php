@@ -16,10 +16,10 @@ class PostController extends Controller
         return view("user-account");
     }
 
-    public function blog()
+    public function blog(Request $request)
     {
 
-        $posts = POST::with("user")->paginate(100);
+        $posts = POST::where("user_id", $request->user()->id)->with("user")->paginate(100);
 
         return view("user-blog", ['posts' => $posts]);
     }
