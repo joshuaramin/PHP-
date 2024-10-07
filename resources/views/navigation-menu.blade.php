@@ -18,6 +18,9 @@
                     <x-nav-link href="{{ route('user') }}" :active="request()->routeIs('user')">
                         {{ __('User') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('post') }}" :active="request()->routeIs('post')">
+                        {{ __('Post') }}
+                    </x-nav-link>
                     <!-- /user/profile -->
                     <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
                         {{ __('About') }}

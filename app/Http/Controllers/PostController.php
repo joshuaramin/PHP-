@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Livewire\WithPagination;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -19,7 +18,7 @@ class PostController extends Controller
     public function blog(Request $request)
     {
 
-        $posts = POST::where("user_id", $request->user()->id)->with("user")->paginate(100);
+        $posts = POST::where("user_id", $request->user()->id)->with("user")->paginate(20);
 
         return view("user-blog", ['posts' => $posts]);
     }
@@ -70,5 +69,25 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->route('blog.create')->with('success', 'Post Created Successfully.');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $posts = Post::findOrFail($id);
+        $posts->title = $request->input('title');
+        $posts->description = $request->input("description");
+
+        $posts->save();
+
+        return redirect("/blog")->with("success", "Post Update Successfullly");
+    }
+
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+
+
+        return redirect("/blog")->with("success", "Post Update Successfullly");
     }
 }

@@ -41,6 +41,8 @@ Route::middleware('roleAuth:admin')->group(function () {
     Route::get("/admin/create", [UserController::class, 'create'])->name('admin.create');
     Route::get("/admin/{id}", [UserController::class, 'show'])->name('admin.show');
     Route::get("/admin/edit/{id}", [UserController::class, 'edit'])->name('admin.edit');
+    Route::get("/post", [UserController::class, "post"])->name("post");
+    Route::get("/post/{id}", [UserController::class, "postShow"])->name('post.show');
     Route::get("/about", function () {
         return view("about");
     })->name("about");

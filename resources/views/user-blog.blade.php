@@ -59,6 +59,7 @@
 
             </table>
 
-            {{$posts->links()}}
+
+            <div class="py-5 text-sm"> {{$posts->links()}}</div>
         </div>
 </x-guest-layout>

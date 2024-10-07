@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -106,12 +107,31 @@ class UserController extends Controller
     }
     public function show($id)
     {
-        $user = collect($this->users)->firstWhere('id', $id);
+        $user = User::find($id);
 
         if (!$user) {
             abort(404, 'User not found');
         }
 
         return view('admin-show', ['user' => $user]);
+    }
+
+    public function post()
+    {
+        $posts = Post::paginate(10);
+
+        return view("admin-post", ['posts' => $posts]);
+    }
+
+    public function postShow($id)
+    {
+        $posts = Post::find($id);
+
+        if (!$posts) {
+            abort(404, "POst not found");
+        }
+
+
+        return view("admin-post-show", compact('posts'));
     }
 }
